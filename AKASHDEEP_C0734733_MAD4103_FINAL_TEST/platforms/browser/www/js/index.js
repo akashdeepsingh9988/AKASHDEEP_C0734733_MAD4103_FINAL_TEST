@@ -1,10 +1,15 @@
 var db = null;
+var storage = window.localStorage;
 
 // add event listeners
 document.addEventListener("deviceReady", connectToDatabase);
 document.getElementById("insert-hero").addEventListener("click", saveButtonPressed);
-document.getElementById("show-heros").addEventListener("click", showAllPressed)
+document.getElementById("show-heros").addEventListener("click", showAllPressed);
+document.getElementById("rescue-me").addEventListener("click", vibration);
 
+function vibration() {
+    navigator.vibrate(3000);
+}
 function connectToDatabase() {
     console.log("device is ready - connecting to database");
     if (window.cordova.platformId === 'browser') {
@@ -42,18 +47,36 @@ function createFail(error) {
 
 function saveButtonPressed(transaction) {
     console.log("save!!!");
+    var str  = storage.getItem("inserted");
+    if(str != "yes")
+        {    
+    
     db.transaction(function (transaction) {
         // save the values to the database
         var sql = "INSERT INTO heroes (name, isAvailable) VALUES ('Spiderman',1), ('Thor',1), ('Captain America',0), ('Wonder Women',0)";
 
+        var st  =  storage.getItem("inserted");
+ 
         transaction.executeSql(sql, [], function (tx, result) {
             alert("Insert success: " + JSON.stringify(result));
             //showAllPressed()
+
+            var storage = window.localStorage;
+            storage.setItem("inserted", "yes"); // Pass a key name and its value to add or update that key.
+
         }, function (error) {
             alert("Insert failed: " + error);
         });
     }
+        
     );
+
+}
+
+else
+{
+    alert("data already inserted");
+}
 
 }
 
@@ -76,8 +99,7 @@ function showAllPressed() {
                         if (item.isAvailable == 1)
                         {
                             av = "Yes";
-                        } 
-                        else
+                        } else
                         {
                             av = "No";
 
