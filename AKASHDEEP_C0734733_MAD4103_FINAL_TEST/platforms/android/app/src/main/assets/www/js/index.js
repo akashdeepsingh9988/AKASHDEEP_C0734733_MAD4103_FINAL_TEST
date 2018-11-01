@@ -3,8 +3,12 @@ var db = null;
 // add event listeners
 document.addEventListener("deviceReady", connectToDatabase);
 document.getElementById("insert-hero").addEventListener("click", saveButtonPressed);
-document.getElementById("show-heros").addEventListener("click", showAllPressed)
+document.getElementById("show-heros").addEventListener("click", showAllPressed);
+document.getElementById("rescue-me").addEventListener("click", vibration);
 
+function vibration() {
+   navigator.vibrate(3000);
+}
 function connectToDatabase() {
     console.log("device is ready - connecting to database");
     if (window.cordova.platformId === 'browser') {
