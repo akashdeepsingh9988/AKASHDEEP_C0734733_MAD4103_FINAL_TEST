@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Thu Nov 01 10:19:55 EDT 2018
+#Thu Nov 01 10:25:09 EDT 2018
 5.base=D\:\\cordova\\AKASHDEEP_C0734733_MAD4103_FINAL_TEST\\AKASHDEEP_C0734733_MAD4103_FINAL_TEST\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 42.base=D\:\\cordova\\AKASHDEEP_C0734733_MAD4103_FINAL_TEST\\AKASHDEEP_C0734733_MAD4103_FINAL_TEST\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 22.path=www/css/ratchet-theme-android.css
