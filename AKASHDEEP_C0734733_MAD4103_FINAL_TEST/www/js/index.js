@@ -2,16 +2,16 @@ var db = null;
 
 // add event listeners
 document.addEventListener("deviceReady", connectToDatabase);
-document.getElementById("saveButton").addEventListener("click", saveButtonPressed);
-document.getElementById("showAllButton").addEventListener("click", showAllPressed)
+document.getElementById("insert-hero").addEventListener("click", saveButtonPressed);
+document.getElementById("show-heros").addEventListener("click", showAllPressed)
 
 function connectToDatabase() {
   console.log("device is ready - connecting to database");
   if (window.cordova.platformId === 'browser') {
-    db = window.openDatabase("cestar", "1.0", "Database for Cestar College app", 2*1024*1024);
+    db = window.openDatabase("superb", "1.0", "Database for super rescue agency app", 2*1024*1024);
   }
   else {
-    var databaseDetails = {"name":"cestar.db", "location":"default"}
+    var databaseDetails = {"name":"superb.db", "location":"default"}
     db = window.sqlitePlugin.openDatabase(databaseDetails);
     console.log("done opening db");
   }
