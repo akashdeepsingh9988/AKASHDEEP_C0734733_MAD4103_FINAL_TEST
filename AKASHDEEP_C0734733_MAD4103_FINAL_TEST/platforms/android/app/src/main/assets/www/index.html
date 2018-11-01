@@ -6,46 +6,48 @@
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.css">
-        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css">
-        <link rel="stylesheet" type="text/css" href="css/jquery.mobile.theme-1.4.5.min.css">
-        <link rel="stylesheet" type="text/css" href="css/jquery.mobile.structure-1.4.5.min.css">
+        <link rel="stylesheet" type="text/css" href="css/ratchet.css">
+        <link rel="stylesheet" type="text/css" href="css/ratchet-theme-android.css">
+        <link rel="stylesheet" type="text/css" href="css/ratchet-theme-ios.css">
         <title>Hello World</title>
     </head>
 
 
     <body>
 
-        <div data-role="page">
-
-            <div data-role="header">
-                <h1> Super hero rescue agency</h1>
 
 
-            </div><!-- /header -->
 
-            <div role="main" class="ui-content">
-                <p>
-                    <button id ="insert-hero"> Insert Hero </button>
-                    <button id ="show-heros"> Show Heros </button>
-                    <button id ="rescue-me"> Rescue Me  </button>
+        <header class="bar bar-nav">
 
-                <h2> Database Items </h2>
-                <div id="dbItems">
-                </div>
 
-                </p>
-            </div><!-- /content -->
+            <button id ="rescue-me" class="btn pull-right"> RESCUE ME!</button>
 
-            <div data-role="footer">
-                <h4>Page Footer</h4>
-            </div><!-- /footer -->
-        </div><!-- /page -->
+            <h1 class="title">Super hero rescue agency</h1>
+        </header>
 
-    </body>
+        
+        <br>
+        <br>
+        <br>
+        <br>
 
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript" src="js/jquery.mobile-1.4.5.js"></script>
+        <p class = "txtalign">
+            <button id ="insert-hero"> INSERT HEROES </button>
+            <button id ="show-heros"> SHOW HEROES </button>
+
+            
+        <div id="dbItems">
+        </div>
+
+    </p>
+
+   
+
+</body>
+
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/ratchet.js"></script>
 </body>
 </html>

@@ -23,6 +23,12 @@ body {
   text-align: center;
 }
 
+#dbItems
+{
+    text-align: center;
+    margin: auto;
+}
+
 article,
 aside,
 details,
