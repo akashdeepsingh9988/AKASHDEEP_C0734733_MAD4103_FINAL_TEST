@@ -43,18 +43,13 @@ function createFail(error) {
 
 function saveButtonPressed(transaction) {
   console.log("save!!!");
-  // get name and department from the user interface
-  var n = document.getElementById("name").value;
-  var d = document.getElementById("dept").value;
-
   db.transaction(function (transaction) {
       // save the values to the database
-      var sql = "INSERT INTO heroes (name, isAvailable) VALUES ('Spiderman',1), ('Thor',1), ('Captain America',0), ('Wonder Women')";
-      
+      var sql = "INSERT INTO heroes (name, isAvailable) VALUES ('Spiderman',1), ('Thor',1), ('Captain America',0), ('Wonder Women',0)";
       
       transaction.executeSql(sql,[], function(tx,result){
         alert("Insert success: " + JSON.stringify(result));
-        showAllPressed()
+        //showAllPressed()
       }, function(error){
         alert("Insert failed: " + error);
       });
