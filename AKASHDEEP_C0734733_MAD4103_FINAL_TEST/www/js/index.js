@@ -58,7 +58,7 @@ function saveButtonPressed(transaction) {
         var st  =  storage.getItem("inserted");
  
         transaction.executeSql(sql, [], function (tx, result) {
-            alert("Insert success: " + JSON.stringify(result));
+            alert("Insert success");
             //showAllPressed()
 
             var storage = window.localStorage;
