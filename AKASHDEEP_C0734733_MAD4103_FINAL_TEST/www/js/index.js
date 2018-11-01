@@ -27,8 +27,7 @@ function connectToDatabase() {
 }
 
 function createTables(transaction) {
-  var sql = "CREATE TABLE IF NOT EXISTS employee (id integer PRIMARY KEY AUTOINCREMENT, name text, dept text)"
-  //var sql = "CREATE TABLE IF NOT EXISTS employee (name text, dept text)"
+  var sql = "CREATE TABLE IF NOT EXISTS heroes (id integer PRIMARY KEY AUTOINCREMENT, name text, isAvailable integer)";
   transaction.executeSql(sql, [], createSuccess, createFail)
 }
 
@@ -50,10 +49,10 @@ function saveButtonPressed(transaction) {
 
   db.transaction(function (transaction) {
       // save the values to the database
-      var sql = "INSERT INTO employee (name, dept) VALUES (?,?)";
+      var sql = "INSERT INTO heroes (name, isAvailable) VALUES ('Spiderman',1), ('Thor',1), ('Captain America',0), ('Wonder Women')";
       
       
-      transaction.executeSql(sql,[n,d], function(tx,result){
+      transaction.executeSql(sql,[], function(tx,result){
         alert("Insert success: " + JSON.stringify(result));
         showAllPressed()
       }, function(error){
@@ -69,7 +68,7 @@ function showAllPressed() {
   document.getElementById("dbItems").innerHTML = "";
 
   db.transaction(function(transaction) {
-    transaction.executeSql("SELECT * FROM employee", [],
+    transaction.executeSql("SELECT * FROM heroes", [],
       function (tx, results) {
         var numRows = results.rows.length;
 
@@ -83,7 +82,7 @@ function showAllPressed() {
           // show it in the user interface
           document.getElementById("dbItems").innerHTML +=
               "<p>Name: " + item.name + "</p>"
-            + "<p>Dept: " + item.dept + "</p>"
+            + "<p>Available for help : " + item.isAvailable + "</p>"
             + "<p>=======================</p>";
         }
 
@@ -91,12 +90,3 @@ function showAllPressed() {
       });
   });
 }
-
-/* DELETE statement
-db.transaction(function(txn) {
-  txn.executeSql("DROP TABLE employee",[],
-      function(tx,results){console.log("Successfully Dropped")},
-      function(tx,error){console.log("Could not delete")}
-  );
-});
-*/
