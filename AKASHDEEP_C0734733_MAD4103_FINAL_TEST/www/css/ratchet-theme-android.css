@@ -223,7 +223,8 @@ a:active {
   padding-left: 15px;
   font-size: 18px;
   line-height: 49px;
-  text-align: left;
+  
+  text-align: center;
 }
 
 .bar .btn {

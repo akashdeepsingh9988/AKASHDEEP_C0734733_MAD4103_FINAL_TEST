@@ -19,6 +19,10 @@ body {
   margin: 0;
 }
 
+.txtalign{
+  text-align: center;
+}
+
 article,
 aside,
 details,
